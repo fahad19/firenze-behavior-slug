@@ -18,12 +18,12 @@ $ bower install --save firenze-behavior-slug
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Contents
 
-  - [What it does](#what-it-does)
-  - [Usage](#usage)
-    - [Node.js](#nodejs)
-    - [Browser](#browser)
-  - [Testing](#testing)
-  - [License](#license)
+- [What it does](#what-it-does)
+- [Usage](#usage)
+  - [Node.js](#nodejs)
+  - [Browser](#browser)
+- [Testing](#testing)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
