@@ -1,0 +1,29 @@
+{
+  "name": "firenze-behavior-slug",
+  "main": "dist/firenze-behavior-slug.min.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/fahad19/firenze-behavior-slug",
+  "authors": [
+    "Fahad Ibnay Heylaal"
+  ],
+  "description": "Slug behavior for firenze.js ORM",
+  "keywords": [
+    "orm",
+    "behaviors",
+    "firenze-behavior",
+    "firenze-plugin",
+    "slug"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firenze": "^0.1.5",
+    "lodash": "^3.7.0"
+  }
+}
