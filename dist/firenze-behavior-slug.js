@@ -81,7 +81,8 @@ this["firenze"] = this["firenze"] || {}; this["firenze"]["SlugBehavior"] =
 	// For example, when saving a post with the title `Hello World`:
 	//
 	// ```js
-	// var post = new Post({
+	// var posts = new Posts();
+	// var post = posts.model({
 	//   title: 'Hello World'
 	// });
 	//
@@ -109,7 +110,7 @@ this["firenze"] = this["firenze"] || {}; this["firenze"]["SlugBehavior"] =
 	//
 	// // create your Database instance...
 	//
-	// db.createModelClass({
+	// db.createCollectionClass({
 	//   behaviors: [
 	//     SlugBehavior
 	//   ]
@@ -119,7 +120,7 @@ this["firenze"] = this["firenze"] || {}; this["firenze"]["SlugBehavior"] =
 	// If you want to pass extra configuration options:
 	//
 	// ```js
-	// db.createModelClass({
+	// db.createCollectionClass({
 	//   behaviors: [
 	//     {
 	//       'class': SlugBehavior
@@ -169,7 +170,7 @@ this["firenze"] = this["firenze"] || {}; this["firenze"]["SlugBehavior"] =
 	    _get(Object.getPrototypeOf(Slug.prototype), 'constructor', this).apply(this, args);
 
 	    this.options = _lodash2['default'].merge({
-	      source: this.model.displayField,
+	      source: this.collection.displayField,
 	      field: 'slug',
 	      separator: '-'
 	    }, this.options);
@@ -179,15 +180,15 @@ this["firenze"] = this["firenze"] || {}; this["firenze"]["SlugBehavior"] =
 
 	  _createClass(Slug, [{
 	    key: 'beforeSave',
-	    value: function beforeSave() {
-	      if (!this.model.isNew()) {
+	    value: function beforeSave(model) {
+	      if (!model.isNew()) {
 	        return new P.resolve(true);
 	      }
 
-	      var source = this.model.get(this.options.source);
+	      var source = model.get(this.options.source);
 	      var slug = _lodash2['default'].chain(source.toLowerCase()).deburr().words().join(this.options.separator).value();
 
-	      this.model.set(this.options.field, slug);
+	      model.set(this.options.field, slug);
 	      return new P.resolve(true);
 	    }
 	  }]);
