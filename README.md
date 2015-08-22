@@ -18,10 +18,10 @@ $ bower install --save firenze-behavior-slug
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Contents
 
-- [What it does](#what-it-does)
-- [Usage](#usage)
-  - [Node.js](#nodejs)
-  - [Browser](#browser)
+  - [What it does](#what-it-does)
+  - [Usage](#usage)
+    - [Node.js](#nodejs)
+    - [Browser](#browser)
 - [Testing](#testing)
 - [License](#license)
 
@@ -35,7 +35,8 @@ When saving a new model, it will automatically generate a slug and set it to spe
 For example, when saving a post with the title `Hello World`:
 
 ```js
-var post = new Post({
+var posts = new Posts();
+var post = posts.model({
   title: 'Hello World'
 });
 
@@ -63,7 +64,7 @@ var SlugBehavior = require('firenze-behavior-slug');
 
 // create your Database instance...
 
-db.createModelClass({
+db.createCollectionClass({
   behaviors: [
     SlugBehavior
   ]
@@ -73,7 +74,7 @@ db.createModelClass({
 If you want to pass extra configuration options:
 
 ```js
-db.createModelClass({
+db.createCollectionClass({
   behaviors: [
     {
       'class': SlugBehavior
