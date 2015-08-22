@@ -23,7 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "firenze": "^0.1.5",
+    "firenze": "^0.2.0",
     "lodash": "^3.7.0"
   }
 }

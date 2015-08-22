@@ -13,7 +13,8 @@ let P = f.Promise;
 // For example, when saving a post with the title `Hello World`:
 //
 // ```js
-// var post = new Post({
+// var posts = new Posts();
+// var post = posts.model({
 //   title: 'Hello World'
 // });
 //
@@ -41,7 +42,7 @@ let P = f.Promise;
 //
 // // create your Database instance...
 //
-// db.createModelClass({
+// db.createCollectionClass({
 //   behaviors: [
 //     SlugBehavior
 //   ]
@@ -51,7 +52,7 @@ let P = f.Promise;
 // If you want to pass extra configuration options:
 //
 // ```js
-// db.createModelClass({
+// db.createCollectionClass({
 //   behaviors: [
 //     {
 //       'class': SlugBehavior
@@ -95,25 +96,25 @@ export default class Slug extends Behavior {
     super(...args);
 
     this.options = _.merge({
-      source: this.model.displayField,
+      source: this.collection.displayField,
       field: 'slug',
       separator: '-'
     }, this.options);
   }
 
-  beforeSave() {
-    if (!this.model.isNew()) {
+  beforeSave(model) {
+    if (!model.isNew()) {
       return new P.resolve(true);
     }
 
-    let source = this.model.get(this.options.source);
+    let source = model.get(this.options.source);
     let slug = _.chain(source.toLowerCase())
       .deburr()
       .words()
       .join(this.options.separator)
       .value();
 
-    this.model.set(this.options.field, slug);
+    model.set(this.options.field, slug);
     return new P.resolve(true);
   }
 }
