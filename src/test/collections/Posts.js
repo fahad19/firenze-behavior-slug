@@ -1,7 +1,7 @@
 var SlugBehavior = require('../../');
 
 module.exports = function (db) {
-  return db.createCollectionClass({
+  return db.createCollection({
     table: 'posts',
 
     alias: 'Post',

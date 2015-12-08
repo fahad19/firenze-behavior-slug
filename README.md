@@ -64,7 +64,7 @@ var SlugBehavior = require('firenze-behavior-slug');
 
 // create your Database instance...
 
-db.createCollectionClass({
+db.createCollection({
   behaviors: [
     SlugBehavior
   ]
@@ -74,7 +74,7 @@ db.createCollectionClass({
 If you want to pass extra configuration options:
 
 ```js
-db.createCollectionClass({
+db.createCollection({
   behaviors: [
     {
       'class': SlugBehavior
